@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #0066cc;
+        }
+        button {
+            display: block;
+            width: 300px;
+            padding: 15px;
+            margin: 15px auto;
+            font-size: 18px;
+            background-color: #00a86b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #008a59;
+        }
+        .logout-btn {
+            background-color: #cc3300;
+        }
+        .logout-btn:hover {
+            background-color: #a32900;
+        }
+    </style>
+</head>
+<body>
+    <h1>Patient Dashboard</h1>
+    
+    <button onclick="bookAppointment()">Book Appointment</button>
+    <button onclick="viewAppointments()">View Appointments</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+
+    <script>
+        function bookAppointment() {
+            const doctor = prompt("Enter doctor name:");
+            const date = prompt("Enter date (DD/MM/YYYY):");
+            
+            if (doctor && date) {
+                const appointment = {
+                    doctor: doctor,
+                    date: date,
+                    status: "Scheduled"
+                };
+                localStorage.setItem("patient_appointment", JSON.stringify(appointment));
+                alert("Appointment booked!");
+            }
+        }
+
+        function viewAppointments() {
+            const appointment = localStorage.getItem("patient_appointment");
+            if (appointment) {
+                const appt = JSON.parse(appointment);
+                alert(`Doctor: ${appt.doctor}\nDate: ${appt.date}\nStatus: ${appt.status}`);
+            } else {
+                alert("No appointments found.");
+            }
+        }
+
+        function logout() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

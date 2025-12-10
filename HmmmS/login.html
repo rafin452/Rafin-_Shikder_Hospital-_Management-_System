@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0052a3;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Login</h2>
+        
+        <select id="userType">
+            <option value="">Select Type</option>
+            <option value="patient">Patient</option>
+            <option value="doctor">Doctor</option>
+        </select>
+        
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        
+        <button onclick="login()">Login</button>
+        
+        <p>No account? <a href="signup.html">Sign Up</a></p>
+        <p><a href="index.html">Back to Home</a></p>
+    </div>
+
+    <script>
+        function login() {
+            const type = document.getElementById("userType").value;
+            const user = document.getElementById("username").value;
+            const pass = document.getElementById("password").value;
+
+            if (type === "" || user === "" || pass === "") {
+                alert("Fill all fields!");
+                return;
+            }
+
+            const storedUser = localStorage.getItem(type + "_user");
+            const storedPass = localStorage.getItem(type + "_pass");
+
+            if (user === storedUser && pass === storedPass) {
+                alert("Login successful!");
+                if (type === "patient") {
+                    window.location.href = "patient_dashboard.html";
+                } else {
+                    window.location.href = "doctor_dashboard.html";
+                }
+            } else {
+                alert("Wrong username or password!");
+            }
+        }
+    </script>
+</body>
+</html>

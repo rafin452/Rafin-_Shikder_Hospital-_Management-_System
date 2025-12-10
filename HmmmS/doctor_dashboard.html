@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #0066cc;
+        }
+        button {
+            display: block;
+            width: 300px;
+            padding: 15px;
+            margin: 15px auto;
+            font-size: 18px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0052a3;
+        }
+        .logout-btn {
+            background-color: #cc3300;
+        }
+        .logout-btn:hover {
+            background-color: #a32900;
+        }
+    </style>
+</head>
+<body>
+    <h1>Doctor Dashboard</h1>
+    
+    <button onclick="viewAppointments()">View Patient Appointments</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+
+    <script>
+        function viewAppointments() {
+            const appointment = localStorage.getItem("patient_appointment");
+            if (appointment) {
+                const appt = JSON.parse(appointment);
+                alert(`Patient Appointment:\nDoctor: ${appt.doctor}\nDate: ${appt.date}\nStatus: ${appt.status}`);
+            } else {
+                alert("No patient appointments.");
+            }
+        }
+
+        function logout() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

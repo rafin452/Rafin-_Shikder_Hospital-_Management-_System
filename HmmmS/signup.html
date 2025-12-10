@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00a86b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #008a59;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Account</h2>
+        
+        <select id="userType">
+            <option value="">Select Type</option>
+            <option value="patient">Patient</option>
+            <option value="doctor">Doctor</option>
+        </select>
+        
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <input type="password" id="confirm" placeholder="Confirm Password">
+        
+        <button onclick="signup()">Sign Up</button>
+        
+        <p>Already have account? <a href="login.html">Login</a></p>
+        <p><a href="index.html">Back to Home</a></p>
+    </div>
+
+    <script>
+        function signup() {
+            const type = document.getElementById("userType").value;
+            const user = document.getElementById("username").value;
+            const pass = document.getElementById("password").value;
+            const confirm = document.getElementById("confirm").value;
+
+            if (type === "" || user === "" || pass === "" || confirm === "") {
+                alert("Fill all fields!");
+                return;
+            }
+
+            if (pass !== confirm) {
+                alert("Passwords don't match!");
+                return;
+            }
+
+            localStorage.setItem(type + "_user", user);
+            localStorage.setItem(type + "_pass", pass);
+
+            alert("Account created!");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
