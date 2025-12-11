@@ -68,8 +68,8 @@
 
     <script>
         function login() {
-            const user = document.getElementById("username").value;
-            const pass = document.getElementById("password").value;
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
 
             if (user === "admin" && pass === "admin123") {
                 alert("Admin login successful!");
@@ -80,4 +80,5 @@
         }
     </script>
 </body>
+
 </html>
