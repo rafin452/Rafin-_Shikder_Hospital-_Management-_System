@@ -43,11 +43,11 @@
 
     <script>
         function bookAppointment() {
-    var doctor = prompt("Enter doctor name:");
-    var date = prompt("Enter date (DD/MM/YYYY):");
+    var doctor = prompt("Enter doctor name: ");
+    var date = prompt("Enter date (DD/MM/YYYY): ");
 
     if (doctor && date) {
-        var appointmentInfo = "Doctor: " + doctor + ", Date: " + date;
+        var appointmentInfo = "Doctor: " + doctor + ",  Date: " + date;
 
         localStorage.setItem("patient_appointment", appointmentInfo);
 
@@ -72,3 +72,4 @@
 </body>
 
 </html>
+
