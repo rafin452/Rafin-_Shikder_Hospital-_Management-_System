@@ -65,10 +65,10 @@
 
     <script>
         function signup() {
-            const type = document.getElementById("userType").value;
-            const user = document.getElementById("username").value;
-            const pass = document.getElementById("password").value;
-            const confirm = document.getElementById("confirm").value;
+            var type = document.getElementById("userType").value;
+            var user = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+            var confirm = document.getElementById("confirm").value;
 
             if (type === "" || user === "" || pass === "" || confirm === "") {
                 alert("Fill all fields!");
@@ -88,4 +88,5 @@
         }
     </script>
 </body>
+
 </html>
