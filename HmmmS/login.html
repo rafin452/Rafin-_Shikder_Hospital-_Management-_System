@@ -64,19 +64,19 @@
 
     <script>
         function login() {
-            const type = document.getElementById("userType").value;
-            const user = document.getElementById("username").value;
-            const pass = document.getElementById("password").value;
+            var type = document.getElementById("userType").value;
+            var user = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
 
             if (type === "" || user === "" || pass === "") {
                 alert("Fill all fields!");
                 return;
             }
 
-            const storedUser = localStorage.getItem(type + "_user");
-            const storedPass = localStorage.getItem(type + "_pass");
+            const User = localStorage.getItem("username");
+            const Pass = localStorage.getItem("password");
 
-            if (user === storedUser && pass === storedPass) {
+            if (user === User && pass === Pass) {
                 alert("Login successful!");
                 if (type === "patient") {
                     window.location.href = "patient_dashboard.html";
@@ -89,4 +89,5 @@
         }
     </script>
 </body>
+
 </html>
