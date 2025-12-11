@@ -37,24 +37,34 @@
 <body>
     <h1>Admin Dashboard</h1>
     
-    <button onclick="viewAppointments()">View All Appointments</button>
+    <button onclick="viewAppointments()">View Appointments</button>
+    <button onclick="deleteAppointments()">Delete Appointments</button>
     <button class="logout-btn" onclick="logout()">Logout</button>
 
     <script>
         function viewAppointments() {
-            const appointment = localStorage.getItem("patient_appointment");
-            if (appointment) {
-                const appt = JSON.parse(appointment);
-                alert(`Appointment Details:\nDoctor: ${appt.doctor}\nDate: ${appt.date}\nStatus: ${appt.status}`);
-            } else {
-                alert("No appointments in system.");
-            }
-        }
+    var appointment = localStorage.getItem("patient_appointment");
 
-        function logout() {
+    if (appointment) {
+        alert("Patient Appointment:\n" + appointment);
+    } else {
+        alert("No appointments found.");
+    }
+}
+
+function deleteAppointments() {
+    var confirmDelete = confirm("Are you sure you want to delete this patient appointment?");
+
+    if (confirmDelete) {
+        localStorage.removeItem("patient_appointment");
+        alert("Patient appointment deleted!");
+    }
+}
+      function logout() {
             alert("Admin logged out!");
             window.location.href = "index.html";
         }
     </script>
 </body>
+
 </html>
