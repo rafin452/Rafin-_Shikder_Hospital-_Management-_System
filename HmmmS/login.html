@@ -73,10 +73,10 @@
                 return;
             }
 
-            const User = localStorage.getItem("username");
-            const Pass = localStorage.getItem("password");
+            var User1 = localStorage.getItem("username");
+            var Pass1 = localStorage.getItem("password");
 
-            if (user === User && pass === Pass) {
+            if (user === User1 && pass === Pass1) {
                 alert("Login successful!");
                 if (type === "patient") {
                     window.location.href = "patient_dashboard.html";
@@ -91,3 +91,4 @@
 </body>
 
 </html>
+
