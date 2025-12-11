@@ -64,17 +64,17 @@
 
     <script>
         function login() {
-            var type = document.getElementById("userType").value;
-            var user = document.getElementById("username").value;
-            var pass = document.getElementById("password").value;
+            let type = document.getElementById("userType").value;
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
 
             if (type === "" || user === "" || pass === "") {
                 alert("Fill all fields!");
                 return;
             }
 
-            var User1 = localStorage.getItem("username");
-            var Pass1 = localStorage.getItem("password");
+            let User1 = localStorage.getItem("username");
+            let Pass1 = localStorage.getItem("password");
 
             if (user === User1 && pass === Pass1) {
                 alert("Login successful!");
@@ -91,4 +91,5 @@
 </body>
 
 </html>
+
 
